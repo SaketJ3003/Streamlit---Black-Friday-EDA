@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Set page configuration
-st.set_page_config(page_title="Black Friday Sale Data Analysis", layout="wide")
+st.set_page_config(page_title="Black Friday Sale Data Analysis", page_icon='black-friday.png', layout="wide")
 
 # Custom styling and animations using CSS
 st.markdown(
