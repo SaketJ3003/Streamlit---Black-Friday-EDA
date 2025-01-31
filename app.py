@@ -6,12 +6,72 @@ import seaborn as sns
 # Set page configuration
 st.set_page_config(page_title="Black Friday Sale Data Analysis", layout="wide")
 
-# Add a background image (optional for a more dynamic look)
+# Custom styling and animations using CSS
 st.markdown(
     """
     <style>
     .stApp {
-        background-image: url("https://www.transparenttextures.com/patterns/asfalt.png");
+        background-image: url('https://www.transparenttextures.com/patterns/asfalt.png');
+        transition: background-color 0.3s ease;
+    }
+
+    /* Header Animation */
+    h1, h2, h3, .stTitle {
+        animation: fadeIn 2s ease-out;
+    }
+
+    /* Fade-in text animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* Sidebar style */
+    .css-1d391kg {
+        background-color: #f1f1f1 !important;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    /* Custom Buttons and Inputs */
+    .stButton button {
+        background-color: #f39c12;
+        border-radius: 8px;
+        padding: 12px 18px;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .stButton button:hover {
+        background-color: #e67e22;
+        transition: 0.3s;
+    }
+
+    /* Responsive Table Styling */
+    .dataframe {
+        animation: fadeIn 1.5s ease-out;
+        overflow-x: auto;
+    }
+
+    .stDataFrame {
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+    }
+
+    /* Custom Pie Chart */
+    .pie-chart {
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Hover Effects for Charts */
+    .stPlotlyChart:hover {
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+        transition: 0.3s;
     }
     </style>
     """, unsafe_allow_html=True
@@ -27,12 +87,88 @@ choice = st.sidebar.radio("Go to", menu)
 
 # Home Page
 if choice == "Home":
-    st.title("🛍️ Black Friday Sale Data Analysis")
+    # Title with animation and vibrant background
+    st.markdown(
+        """
+        <style>
+        .home-title {
+            color: #FF6F61;
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            animation: bounceIn 2s ease-out;
+        }
+
+        .home-description {
+            font-size: 20px;
+            font-weight: 500;
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+            line-height: 1.6;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .home-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            background-color: #FF8C00;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0px 10px 20px rgba(255, 140, 0, 0.3);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #FF6347;
+            transform: scale(1.05);
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        </style>
+        """, unsafe_allow_html=True
+    )
+
+    # Title Section with Animation
+    st.markdown('<h1 class="home-title">🛍️ Black Friday Sale Data Analysis</h1>', unsafe_allow_html=True)
+
+    # Description Section with Animation
     st.markdown("""
-        Welcome to the **Black Friday Sale Data Analysis** app! 🛒
-        
-        Use the navigation on the left to explore various insights from the dataset.
-    """)
+        <div class="home-description">
+            Welcome to the **Black Friday Sale Data Analysis** app! 🛒 <br><br>
+            Use the navigation on the left to explore various insights from the dataset, 
+            and dive into detailed analyses that will reveal exciting patterns and trends 
+            from Black Friday sales data. 🚀
+        </div>
+    """, unsafe_allow_html=True)
+
+
 
 # Data Overview
 elif choice == "Data Overview":
